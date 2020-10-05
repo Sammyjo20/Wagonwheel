@@ -1,0 +1,33 @@
+{
+    "name": "sammyjo20/jockey",
+    "description": "Automatically create an online version of every email you send in Laravel.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sammyjo20",
+            "email": "sam.carre2000@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.3",
+        "illuminate/support": "^6.0 || ^7.0 || ^8.0",
+        "illuminate/mail": "^6.0 || ^7.0 || ^8.0",
+        "illuminate/database": "^6.0 || ^7.0 || ^8.0",
+        "illuminate/http": "^6.0 || ^7.0 || ^8.0",
+        "ext-dom": "*"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sammyjo20\\Jockey\\JockeyServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Sammyjo20\\Jockey\\": "src/"
+        }
+    }
+}

@@ -4,5 +4,9 @@ namespace Sammyjo20\Jockey\Concerns;
 
 trait SaveForOnlineViewing
 {
-    protected $saveForOnlineViewing = true;
+    public $saveForOnlineViewing = true;
+
+    public $onlineViewingReference = null;
+
+    public $onlineViewingExpiry = null;
 }

@@ -3,6 +3,7 @@
 namespace Sammyjo20\Jockey;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as EventServiceProvider;
+
 use Illuminate\Mail\Events\MessageSending;
 use Sammyjo20\Jockey\Listeners\AppendOnlineMailableUrl;
 use Sammyjo20\Jockey\Listeners\CreateOnlineMailable;
@@ -21,14 +22,4 @@ class JockeyEventServiceProvider extends EventServiceProvider
             AppendOnlineMailableUrl::class,
         ],
     ];
-
-    /**
-     * Register any events for your application.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        parent::boot();
-    }
 }

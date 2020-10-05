@@ -7,11 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class OnlineMailable extends Model
 {
     /**
-     * @var array
-     */
-    public $guarded = [];
-
-    /**
      * @var string[]
      */
     public $timestamps = [
@@ -21,16 +16,12 @@ class OnlineMailable extends Model
     ];
 
     /**
-     * OnlineMailable constructor.
-     * @param array $attributes
+     * Get the route key for the model.
+     *
+     * @return string
      */
-    public function __construct(array $attributes = [])
+    public function getRouteKeyName()
     {
-        $this->setTable('online_mailables')
-            ->setConnection(
-                config('database.default', null)
-            );
-
-        parent::__construct($attributes);
+        return 'uuid';
     }
 }

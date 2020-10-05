@@ -2,14 +2,18 @@
 
 namespace Sammyjo20\Jockey\Listeners;
 
+use Carbon\Carbon;
 use Illuminate\Mail\Events\MessageSending;
 use Illuminate\Support\Str;
+use Sammyjo20\Jockey\Concerns\HasListenerValidation;
 use Sammyjo20\Jockey\Exceptions\InvalidMailableException;
 use Sammyjo20\Jockey\Tasks\AppendMailableUrlJob;
 use \Swift_Message;
 
 class AppendOnlineMailableUrl
 {
+    use HasListenerValidation;
+
     /**
      * @param MessageSending $event
      * @throws InvalidMailableException
@@ -17,72 +21,33 @@ class AppendOnlineMailableUrl
      */
     public function handle(MessageSending $event): void
     {
-        if (!$this->shouldCreateOnlineVersion($event->data)) {
+        if (!$this->validOnlineMailableEvent($event->message, $event->data)) {
             return;
         }
 
-        if (!$this->usingSwiftMailer($event->message)) {
-            throw new InvalidMailableException(
-                'The mailable is not using the SwiftMailer driver. Please use the SwiftMailer mail driver to 
-                support online versions.'
-            );
-        }
-
-        if (!$this->isHtmlContent($event->message->getBodyContentType())) {
-            throw new InvalidMailableException(
-                'The mailable provided is not a HTML email. Please make sure to use text/html as the content 
-                type.'
-            );
-        }
+        // Todo: Add configuration variable which allows people to disable the below logic.
 
         $this->appendMailableUrlToBody(
-            $event->message, $event->data['onlineReference']
+            $event->message, $event->data['onlineReference'], $event->data['onlineExpiry']
         );
     }
 
     /**
      * @param Swift_Message $message
      * @param string $onlineReference
-     * @throws \Sammyjo20\Jockey\Exceptions\ParsingMailableFailedException
+     * @param Carbon $onlineExpiry
      */
-    private function appendMailableUrlToBody(Swift_Message &$message, string $onlineReference)
+    private function appendMailableUrlToBody(Swift_Message &$message, string $onlineReference, Carbon $onlineExpiry)
     {
         $contentType = Str::lower($message->getBodyContentType());
 
         $body = (new AppendMailableUrlJob)
             ->setOnlineReference($onlineReference)
+            ->setOnlineExpiry($onlineExpiry)
             ->setBody($message->getBody())
             ->run()
             ->getBody();
 
         $message->setBody($body, $contentType);
-    }
-
-    /**
-     * @param string $contentType
-     * @return bool
-     */
-    private function isHtmlContent(string $contentType): bool
-    {
-        return Str::lower($contentType) === 'text/html';
-    }
-
-    /**
-     * @param array $data
-     * @return bool
-     */
-    private function shouldCreateOnlineVersion(array $data): bool
-    {
-        return isset($data['onlineReference']) && isset($data['onlineExpiry'])
-            && !is_null($data['onlineReference']) && !is_null($data['onlineExpiry']);
-    }
-
-    /**
-     * @param $message
-     * @return bool
-     */
-    private function usingSwiftMailer($message): bool
-    {
-        return $message instanceof Swift_Message;
     }
 }

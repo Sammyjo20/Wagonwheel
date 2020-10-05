@@ -16,7 +16,8 @@
         "illuminate/mail": "^6.0 || ^7.0 || ^8.0",
         "illuminate/database": "^6.0 || ^7.0 || ^8.0",
         "illuminate/http": "^6.0 || ^7.0 || ^8.0",
-        "ext-dom": "*"
+        "ext-dom": "*",
+        "paquettg/php-html-parser": "^3.1"
     },
     "extra": {
         "laravel": {

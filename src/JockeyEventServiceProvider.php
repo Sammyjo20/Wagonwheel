@@ -4,7 +4,6 @@ namespace Sammyjo20\Jockey;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as EventServiceProvider;
 use Illuminate\Mail\Events\MessageSending;
-use Illuminate\Mail\Events\MessageSent;
 use Sammyjo20\Jockey\Listeners\AppendOnlineMailableUrl;
 use Sammyjo20\Jockey\Listeners\CreateOnlineMailable;
 
@@ -18,10 +17,8 @@ class JockeyEventServiceProvider extends EventServiceProvider
      */
     protected $listen = [
         MessageSending::class => [
+            CreateOnlineMailable::class,
             AppendOnlineMailableUrl::class,
-        ],
-        MessageSent::class => [
-            CreateOnlineMailable::class
         ],
     ];
 

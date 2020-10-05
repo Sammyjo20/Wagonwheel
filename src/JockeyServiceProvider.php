@@ -20,12 +20,12 @@ class JockeyServiceProvider extends BaseServiceProvider
             if (!class_exists('CreateOnlineMailablesTable')) {
                 $this->publishes([
                     __DIR__ . '/../stubs/migrations/create_online_mailables_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_online_mailables_table.php'),
-                ], 'migrations');
+                ], 'jockey-wmigrations');
             }
 
             $this->publishes([
                 __DIR__ . '/Views' => resource_path('views/vendor/jockey'),
-            ], 'views');
+            ], 'jockey-views');
         }
 
         $this->loadRoutesFrom(__DIR__ . '/Http/router.php');

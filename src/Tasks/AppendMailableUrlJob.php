@@ -62,7 +62,7 @@ class AppendMailableUrlJob implements JobInterface
         $body = $bodies[0];
         $bodyChildren = $body->getChildren();
 
-        $mode = 'append'; // Or append
+        $mode = 'prepend'; // Or append
 
         if ($mode === 'prepend' && !count($bodyChildren)) {
             throw new ParsingMailableFailedException('There are no children inside the <body> tag.');

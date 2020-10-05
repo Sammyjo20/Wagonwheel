@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 use Sammyjo20\Jockey\Actions\AppendUrlToMailableContent;
 use Sammyjo20\Jockey\Concerns\HasListenerValidation;
 use Sammyjo20\Jockey\Exceptions\InvalidMailableException;
-use Sammyjo20\Jockey\Tasks\AppendMailableUrlJob;
 use \Swift_Message;
 
 class AppendOnlineMailableUrl

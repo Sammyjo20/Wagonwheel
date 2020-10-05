@@ -52,8 +52,7 @@ trait HasListenerValidation
      */
     private function shouldCreateOnlineVersion(array $data): bool
     {
-        return isset($data['onlineReference'], $data['onlineExpiry'])
-            && !is_null($data['onlineReference']) && !is_null($data['onlineExpiry']);
+        return isset($data['saveForOnlineViewing']);
     }
 
     /**

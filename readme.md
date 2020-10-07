@@ -56,7 +56,7 @@ If you would like to customise how Wagonwheel works. Run the following command t
 php artisan vendor:publish --tag=wagonwheel-config
 ```
 
-*component_placement* - This configuration variable defines if the banner should be rendered at the start of the email content or at the end of the email content. The available values are **start** and **end**
+*component_placement* - This configuration variable defines if the banner should be rendered at the start of the email content or at the end of the email content. The available values are **start** and **end**.
 
 *message_expires_in_days* - This configuration variable defines how long Wagonwheel should keep the online version of an email in days. **The default is 30 days**.
 

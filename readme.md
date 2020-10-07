@@ -60,3 +60,9 @@ php artisan vendor:publish --tag=wagonwheel-config
 
 *message_expires_in_days* - This configuration variable defines how long Wagonwheel should keep the online version of an email in days. **The default is 30 days**.
 
+## Customisation
+
+If you would like to customise how the banner looks inside the email, just publish Wagonwheel's views with the following command.
+```shell
+php artisan vendor:publish --tag=wagonwheel-views
+```

@@ -3,7 +3,7 @@
 </p>
 
 # Wagonwheel
-Offer an online version of all of your Laravel emails to your users.
+**Offer an online version of all of your Laravel emails to your users.**
 
 Wagonwheel uses Laravel's built-in temporary signed URLs to create the URL for the online version. This means it's secured by your app's encryption key, as well as making it difficult to guess.
 

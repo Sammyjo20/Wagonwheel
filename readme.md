@@ -1,5 +1,7 @@
 # Wagonwheel
-<img src="https://samcarre.dev/images/wagonwheel-example.png" alt="Wagonwheel" height="350">
+<p align="center">
+    <img src="https://samcarre.dev/images/wagonwheel-example.png" alt="Wagonwheel" height="350">
+</p>
 
 **Offer an online version of all of your Laravel emails to your users.**
 

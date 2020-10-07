@@ -1,13 +1,12 @@
 <?php
 
-namespace Sammyjo20\Jockey\Listeners;
+namespace Sammyjo20\Wagonwheel\Listeners;
 
 use Carbon\Carbon;
 use Illuminate\Mail\Events\MessageSending;
-use Illuminate\Support\Str;
-use Sammyjo20\Jockey\Actions\AppendUrlToMailableContent;
-use Sammyjo20\Jockey\Concerns\HasListenerValidation;
-use Sammyjo20\Jockey\Exceptions\InvalidMailableException;
+use Sammyjo20\Wagonwheel\Actions\AppendUrlToMailableContent;
+use Sammyjo20\Wagonwheel\Concerns\HasListenerValidation;
+use Sammyjo20\Wagonwheel\Exceptions\InvalidMailableException;
 use \Swift_Message;
 
 class AppendOnlineMailableUrl
@@ -17,7 +16,7 @@ class AppendOnlineMailableUrl
     /**
      * @param MessageSending $event
      * @throws InvalidMailableException
-     * @throws \Sammyjo20\Jockey\Exceptions\ParsingMailableFailedException
+     * @throws \Sammyjo20\Wagonwheel\Exceptions\ParsingMailableFailedException
      */
     public function handle(MessageSending $event): void
     {
@@ -44,7 +43,7 @@ class AppendOnlineMailableUrl
      * @throws \PHPHtmlParser\Exceptions\LogicalException
      * @throws \PHPHtmlParser\Exceptions\NotLoadedException
      * @throws \PHPHtmlParser\Exceptions\StrictException
-     * @throws \Sammyjo20\Jockey\Exceptions\ParsingMailableFailedException
+     * @throws \Sammyjo20\Wagonwheel\Exceptions\ParsingMailableFailedException
      */
     private function appendUrlToMailableContent(Swift_Message &$message, string $viewingReference, Carbon $viewingExpiry)
     {

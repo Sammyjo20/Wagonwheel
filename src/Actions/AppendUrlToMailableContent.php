@@ -1,12 +1,12 @@
 <?php
 
-namespace Sammyjo20\Jockey\Actions;
+namespace Sammyjo20\Wagonwheel\Actions;
 
 use Carbon\Carbon;
 use PHPHtmlParser\Dom;
 use PHPHtmlParser\Options;
-use Sammyjo20\Jockey\Exceptions\ParsingMailableFailedException;
-use Sammyjo20\Jockey\Helpers\UrlHelper;
+use Sammyjo20\Wagonwheel\Exceptions\ParsingMailableFailedException;
+use Sammyjo20\Wagonwheel\Helpers\UrlHelper;
 
 class AppendUrlToMailableContent
 {
@@ -51,7 +51,7 @@ class AppendUrlToMailableContent
      */
     public function execute(): string
     {
-        $placement = config('jockey.component_placement', 'before');
+        $placement = config('wagonwheel.component_placement', 'before');
         $message = $this->createDomFromHtmlString($this->messageContent);
         $bodies = $message->find('body');
 
@@ -110,7 +110,7 @@ class AppendUrlToMailableContent
     {
         $url = UrlHelper::generateOnlineVersionUrl($this->viewingReference, $this->viewingExpiry);
 
-        return view('jockey::components.view-online', ['url' => $url])->render();
+        return view('wagonwheel::components.view-online', ['url' => $url])->render();
     }
 
     private function setViewingReference(string $value): self

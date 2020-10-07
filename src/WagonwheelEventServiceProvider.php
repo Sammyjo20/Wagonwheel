@@ -1,14 +1,14 @@
 <?php
 
-namespace Sammyjo20\Jockey;
+namespace Sammyjo20\Wagonwheel;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as EventServiceProvider;
 
 use Illuminate\Mail\Events\MessageSending;
-use Sammyjo20\Jockey\Listeners\AppendOnlineMailableUrl;
-use Sammyjo20\Jockey\Listeners\CreateOnlineMailable;
+use Sammyjo20\Wagonwheel\Listeners\AppendOnlineMailableUrl;
+use Sammyjo20\Wagonwheel\Listeners\CreateOnlineMailable;
 
-class JockeyEventServiceProvider extends EventServiceProvider
+class WagonwheelEventServiceProvider extends EventServiceProvider
 {
     /**
      * Register our event listeners for Laravel's built in

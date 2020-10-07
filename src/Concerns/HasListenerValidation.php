@@ -1,9 +1,9 @@
 <?php
 
-namespace Sammyjo20\Jockey\Concerns;
+namespace Sammyjo20\Wagonwheel\Concerns;
 
 use Illuminate\Support\Str;
-use Sammyjo20\Jockey\Exceptions\InvalidMailableException;
+use Sammyjo20\Wagonwheel\Exceptions\InvalidMailableException;
 use \Swift_Message;
 
 trait HasListenerValidation

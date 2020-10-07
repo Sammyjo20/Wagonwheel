@@ -1,6 +1,6 @@
 <?php
 
-namespace Sammyjo20\Jockey\Concerns;
+namespace Sammyjo20\Wagonwheel\Concerns;
 
 trait SaveForOnlineViewing
 {

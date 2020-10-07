@@ -1,4 +1,4 @@
-# Jockey
+# 🚚 Wagonwheel
 
 ## Installation
 
@@ -8,12 +8,12 @@
 "repositories": [
     {
         "type": "path",
-        "url": "./../jockey"
+        "url": "./../wagonwheel"
     }
 ]
 ```
 
-``composer require sammyjo20/jockey``
+``composer require sammyjo20/wagonwheel``
 
 2. Publish and run the migrations
 

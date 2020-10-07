@@ -1,13 +1,13 @@
 <?php
 
-namespace Sammyjo20\Jockey\Listeners;
+namespace Sammyjo20\Wagonwheel\Listeners;
 
 use Carbon\Carbon;
 use Illuminate\Mail\Events\MessageSending;
 use Illuminate\Support\Str;
-use Sammyjo20\Jockey\Concerns\HasListenerValidation;
-use Sammyjo20\Jockey\Exceptions\InvalidMailableException;
-use Sammyjo20\Jockey\Models\OnlineMailable;
+use Sammyjo20\Wagonwheel\Concerns\HasListenerValidation;
+use Sammyjo20\Wagonwheel\Exceptions\InvalidMailableException;
+use Sammyjo20\Wagonwheel\Models\OnlineMailable;
 
 class CreateOnlineMailable
 {
@@ -38,7 +38,7 @@ class CreateOnlineMailable
 
     private function generateOnlineViewingExpiry(): Carbon
     {
-        $expiry = config('jockey.message_expires_in_days', 30);
+        $expiry = config('wagonwheel.message_expires_in_days', 30);
 
         return Carbon::now()->addDays($expiry);
     }

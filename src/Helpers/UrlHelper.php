@@ -1,6 +1,6 @@
 <?php
 
-namespace Sammyjo20\Jockey\Helpers;
+namespace Sammyjo20\Wagonwheel\Helpers;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\URL;

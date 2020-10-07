@@ -1,6 +1,6 @@
 <?php
 
-namespace Sammyjo20\Jockey\Models;
+namespace Sammyjo20\Wagonwheel\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

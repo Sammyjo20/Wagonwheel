@@ -1,9 +1,9 @@
 <?php
 
-namespace Sammyjo20\Jockey\Http\Controllers;
+namespace Sammyjo20\Wagonwheel\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Sammyjo20\Jockey\Models\OnlineMailable;
+use Sammyjo20\Wagonwheel\Models\OnlineMailable;
 
 class ViewOnlineMailableController
 {

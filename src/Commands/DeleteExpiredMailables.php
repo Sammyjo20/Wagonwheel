@@ -1,9 +1,9 @@
 <?php
 
-namespace Sammyjo20\Jockey\Commands;
+namespace Sammyjo20\Wagonwheel\Commands;
 
 use Illuminate\Console\Command;
-use Sammyjo20\Jockey\Models\OnlineMailable;
+use Sammyjo20\Wagonwheel\Models\OnlineMailable;
 
 class DeleteExpiredMailables extends Command
 {
@@ -12,7 +12,7 @@ class DeleteExpiredMailables extends Command
      *
      * @var string
      */
-    protected $signature = 'jockey:delete-expired-mailables';
+    protected $signature = 'wagonwheel:delete-expired-mailables';
 
     /**
      * The console command description.

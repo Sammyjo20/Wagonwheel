@@ -1,5 +1,5 @@
 {
-    "name": "sammyjo20/jockey",
+    "name": "sammyjo20/wagonwheel",
     "description": "Create an online version of every email you send in Laravel.",
     "type": "library",
     "license": "MIT",
@@ -24,13 +24,13 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Sammyjo20\\Jockey\\JockeyServiceProvider"
+                "Sammyjo20\\Wagonwheel\\WagonwheelServiceProvider"
             ]
         }
     },
     "autoload": {
         "psr-4": {
-            "Sammyjo20\\Jockey\\": "src/"
+            "Sammyjo20\\Wagonwheel\\": "src/"
         }
     }
 }

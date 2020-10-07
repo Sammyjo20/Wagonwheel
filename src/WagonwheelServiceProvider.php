@@ -1,12 +1,12 @@
 <?php
 
-namespace Sammyjo20\Jockey;
+namespace Sammyjo20\Wagonwheel;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Sammyjo20\Jockey\Commands\DeleteExpiredMailables;
+use Sammyjo20\Wagonwheel\Commands\DeleteExpiredMailables;
 
-class JockeyServiceProvider extends BaseServiceProvider
+class WagonwheelServiceProvider extends BaseServiceProvider
 {
     protected $commands = [
         DeleteExpiredMailables::class,
@@ -35,17 +35,17 @@ class JockeyServiceProvider extends BaseServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../resources/views' => resource_path('views/vendor/jockey'),
-            ], 'jockey-views');
+                __DIR__ . '/../resources/views' => resource_path('views/vendor/Wagonwheel'),
+            ], 'wagonwheel-views');
 
             $this->publishes([
-                __DIR__ . '/../config/jockey.php' => config_path('jockey.php'),
-            ], 'jockey-config');
+                __DIR__ . '/../config/Wagonwheel.php' => config_path('Wagonwheel.php'),
+            ], 'wagonwheel-config');
 
             if (!class_exists('CreateOnlineMailablesTable')) {
                 $this->publishes([
                     __DIR__ . '/../stubs/migrations/create_online_mailables_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_online_mailables_table.php'),
-                ], 'jockey-migrations');
+                ], 'wagonwheel-migrations');
             }
         }
 
@@ -54,7 +54,7 @@ class JockeyServiceProvider extends BaseServiceProvider
 
     private function registersEventListeners(): self
     {
-        $this->app->register(JockeyEventServiceProvider::class);
+        $this->app->register(WagonwheelEventServiceProvider::class);
 
         return $this;
     }
@@ -62,7 +62,7 @@ class JockeyServiceProvider extends BaseServiceProvider
     private function loadConfig(): self
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/jockey.php', 'jockey'
+            __DIR__ . '/../config/wagonwheel.php', 'wagonwheel'
         );
 
         return $this;
@@ -77,14 +77,14 @@ class JockeyServiceProvider extends BaseServiceProvider
 
     private function loadViews(): self
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'jockey');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'wagonwheel');
 
         return $this;
     }
 
     private function loadTranslations(): self
     {
-        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'jockey');
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'wagonwheel');
 
         return $this;
     }
@@ -95,7 +95,7 @@ class JockeyServiceProvider extends BaseServiceProvider
 
         $this->app->booted(function () {
             $schedule = $this->app->make(Schedule::class);
-            $schedule->command('jockey:delete-expired-mailables')->everyMinute();
+            $schedule->command('wagonwheel:delete-expired-mailables')->everyMinute();
         });
 
         return $this;

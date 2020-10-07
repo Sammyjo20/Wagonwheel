@@ -22,15 +22,21 @@
 composer require sammyjo20/wagonwheel
 ```
 
+
+
 2. Publish the migrations
 ```shell
 php artisan vendor:publish --tag=wagonwheel-migrations
 ```
 
+
+
 3. Run the migrations
 ```shell
 php artisan migrate
 ```
+
+
 
 4. Add the "SaveForOnlineViewing" trait to **any** of your Mailables.
 

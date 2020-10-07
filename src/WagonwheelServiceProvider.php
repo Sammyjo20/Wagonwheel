@@ -35,11 +35,11 @@ class WagonwheelServiceProvider extends BaseServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../resources/views' => resource_path('views/vendor/Wagonwheel'),
+                __DIR__ . '/../resources/views' => resource_path('views/vendor/wagonwheel'),
             ], 'wagonwheel-views');
 
             $this->publishes([
-                __DIR__ . '/../config/Wagonwheel.php' => config_path('Wagonwheel.php'),
+                __DIR__ . '/../config/wagonwheel.php' => config_path('wagonwheel.php'),
             ], 'wagonwheel-config');
 
             if (!class_exists('CreateOnlineMailablesTable')) {

@@ -51,7 +51,7 @@ class AppendUrlToMailableContent
      */
     public function execute(): string
     {
-        $placement = config('wagonwheel.component_placement', 'before');
+        $placement = config('wagonwheel.component_placement', 'start');
         $message = $this->createDomFromHtmlString($this->messageContent);
         $bodies = $message->find('body');
 
@@ -65,17 +65,17 @@ class AppendUrlToMailableContent
         $body = $bodies[0];
         $bodyChildren = $body->getChildren();
 
-        if ($placement === 'before' && count($bodyChildren) <= 0) {
+        if ($placement === 'start' && count($bodyChildren) <= 0) {
             throw new ParsingMailableFailedException('There are no children inside the <body> tag.');
         }
 
         foreach($componentChildren as $child) {
-            if ($placement === 'before') {
+            if ($placement === 'start') {
                 $body->insertBefore($child, $bodyChildren[0]->id());
                 continue;
             }
 
-            if ($placement === 'after') {
+            if ($placement === 'end') {
                 $body->addChild($child);
             }
         }

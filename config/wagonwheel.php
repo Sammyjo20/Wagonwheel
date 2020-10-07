@@ -2,8 +2,21 @@
 
 return [
 
-    'component_placement' => 'before',
+    /*
+     * This configuration variable defines if the banner should be rendered
+     * at the start of the email content or at the end of the email content.
+     *
+     * Available values: "start", "end"
+     */
+    'component_placement' => 'start',
 
-    'message_expires_in_days' => 1,
+
+    /*
+     * This configuration variable defines how long Wagonwheel should keep
+     * the online version of an email in days.
+     *
+     * The default value is 30 days.
+     */
+    'message_expires_in_days' => 30,
 
 ];

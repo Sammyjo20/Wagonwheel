@@ -19,7 +19,7 @@ class DeleteExpiredMailables extends Command
      *
      * @var string
      */
-    protected $description = 'Delete any mailables that have passed their expiry date.';
+    protected $description = 'Delete any online emails that have passed their expiry date.';
 
     /**
      * Execute the console command.
@@ -28,5 +28,9 @@ class DeleteExpiredMailables extends Command
     {
         OnlineMailable::whereDate('expires_at', '<=', now())
             ->delete();
+
+        $this->info('Successfully deleted expired online mailables ✅');
+
+        return 0;
     }
 }

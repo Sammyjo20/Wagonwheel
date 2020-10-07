@@ -1,8 +1,8 @@
+# Wagonwheel
 <p align="center">
   <img src="https://samcarre.dev/images/wagonwheel-example.png" alt="Wagonwheel" height="350">
 </p>
 
-# Wagonwheel
 **Offer an online version of all of your Laravel emails to your users.**
 
 - Uses Laravel's built-in temporary signed URLs to create the URL for the online version. This means it's secured by your app's encryption key, as well as making it difficult to guess.
@@ -10,6 +10,8 @@
 - Highly customisable.
 
 - Easy to install.
+
+- Supports Laravel 7+
 
 ## Installation
 1. Install Wagonwheel using composer with the command below:

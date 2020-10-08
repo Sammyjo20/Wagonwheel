@@ -40,11 +40,26 @@ php artisan migrate
 4. Add the "SaveForOnlineViewing" trait to **any** of your Mailables.
 
 ```php
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
 use Sammyjo20\Wagonwheel\Concerns\SaveForOnlineViewing;
 
 class BookingConfirmed extends Mailable
 {
     use Queueable, SerializesModels, SaveForOnlineViewing;
+    
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->subject('Booking Confirmed 🎉')
+            ->markdown('emails.bookings.confirmed');
+    }
+}
 ```
 
 ## Thanks

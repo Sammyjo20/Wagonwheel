@@ -19,7 +19,6 @@
         "illuminate/http": "^7.0 || ^8.0",
         "illuminate/routing": "^7.0 || ^8.0",
         "illuminate/console": "^7.0 || ^8.0",
-        "ext-dom": "*",
         "paquettg/php-html-parser": "^3.1"
     },
     "extra": {

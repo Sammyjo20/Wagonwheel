@@ -1,6 +1,6 @@
 {
     "name": "sammyjo20/wagonwheel",
-    "description": "Offer an online version all of your Laravel emails to your users.",
+    "description": "Offer an online version of your Laravel emails to users.",
     "version": "1.0.2",
     "type": "library",
     "license": "MIT",

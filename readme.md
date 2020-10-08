@@ -6,7 +6,7 @@
 
 **Offer an online version of your Laravel emails to users.**
 
-[![Latest Stable Version](https://poser.pugx.org/sammyjo20/wagonwheel/v)](//packagist.org/packages/sammyjo20/wagonwheel) [![Total Downloads](https://poser.pugx.org/sammyjo20/wagonwheel/downloads)](//packagist.org/packages/sammyjo20/wagonwheel) [![License (https://poser.pugx.org/sammyjo20/wagonwheel/license)](//packagist.org/packages/sammyjo20/wagonwheel)
+[![Latest Stable Version](https://poser.pugx.org/sammyjo20/wagonwheel/v)](//packagist.org/packages/sammyjo20/wagonwheel) [![Total Downloads](https://poser.pugx.org/sammyjo20/wagonwheel/downloads)](//packagist.org/packages/sammyjo20/wagonwheel) [![License](https://poser.pugx.org/sammyjo20/wagonwheel/license)](//packagist.org/packages/sammyjo20/wagonwheel)
 
 - Uses Laravel's built-in temporary signed URLs to create the URL for the online version. This means it's secured by your app's encryption key, as well as making it difficult to guess.
 

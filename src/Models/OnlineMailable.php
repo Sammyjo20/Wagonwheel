@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class OnlineMailable extends Model
 {
     /**
-     * @var string[]
+     * @var bool
      */
-    public $timestamps = [
-        'created_at',
-        'updated_at',
-        'expires_at'
+    public $timestamps = true;
+    
+    /**
+     * @var array
+     */
+    protected $casts = [
+        'expires_at' => 'datetime',
     ];
 }

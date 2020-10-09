@@ -84,5 +84,5 @@ php artisan vendor:publish --tag=wagonwheel-views
 ```
 
 ## Thanks
-- Ryan Chandler (@ryangjchanlder) helped out massively with some great code improvements and overall making Wagonwheel better!
+- Ryan Chandler (@ryangjchandler) helped out massively with some great code improvements and overall making Wagonwheel better!
 - Gareth Thompson (@cssgareth) helped out with coming up with a cool name!

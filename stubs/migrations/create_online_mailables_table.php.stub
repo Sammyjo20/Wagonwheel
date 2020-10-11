@@ -17,7 +17,7 @@ class CreateOnlineMailablesTable extends Migration
             $table->id();
             $table->uuid('uuid');
             $table->timestamps();
-            $table->timestamp('expires_at');
+            $table->timestamp('expires_at')->nullable();
             $table->binary('content');
         });
     }

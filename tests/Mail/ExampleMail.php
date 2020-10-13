@@ -11,7 +11,7 @@ class ExampleMail extends Mailable
 
     public function build()
     {
-        return $this->view('wagonwheel::mails.example-mail');
+        return $this->view('wagonwheel-tests::mails.example-mail');
     }
 }
 

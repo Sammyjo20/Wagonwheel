@@ -83,6 +83,19 @@ If you would like to customise how the banner looks inside the email, just publi
 php artisan vendor:publish --tag=wagonwheel-views
 ```
 
+## Testing
+Run all tests
+
+```
+composer test
+```
+
+Run a specific test
+
+```
+composer test-f [name of test method]
+```
+
 ## Thanks
 - Ryan Chandler (@ryangjchandler) helped out massively with some great code improvements and overall making Wagonwheel better!
 - Gareth Thompson (@cssgareth) helped out with coming up with a cool name!

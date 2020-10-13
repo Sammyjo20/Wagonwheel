@@ -24,15 +24,13 @@ class OnlineMailableFactory extends Factory
 
     public function expired()
     {
-        return $this->state([
-            'expires_at' => Carbon::parse('1 year ago'),
-        ]);
+        return $this->expiresIn(now()->subYear());
     }
 
-    public function expiresIn(string $expirePeriod)
+    public function expiresIn(Carbon $date)
     {
         return $this->state([
-            'expires_at' => now()->add($expirePeriod),
+            'expires_at' => $date,
         ]);
     }
 }

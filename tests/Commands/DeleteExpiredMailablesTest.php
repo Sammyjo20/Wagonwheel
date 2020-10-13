@@ -2,7 +2,6 @@
 
 namespace Sammyjo20\Wagonwheel\Tests\Commands;
 
-use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Config;
 use Sammyjo20\Wagonwheel\Commands\DeleteExpiredMailables;
@@ -38,7 +37,7 @@ class DeleteExpiredMailablesTest extends TestCase
     function it_only_deletes_expired_mailables()
     {
         $expiredMailable = OnlineMailable::factory()->expired()->create();
-        $nonExpiredMailable = OnlineMailable::factory()->expiresIn('30 days')->create();
+        $nonExpiredMailable = OnlineMailable::factory()->expiresIn(now()->addMonth())->create();
 
         $this->assertCount(2, OnlineMailable::all());
         $this->assertDatabaseHas('online_mailables', ['uuid' => $expiredMailable->uuid]);

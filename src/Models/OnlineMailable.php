@@ -22,6 +22,19 @@ class OnlineMailable extends Model
         return OnlineMailableFactory::new();
     }
 
+    public function getSignedUrl()
+    {
+        if ($this->expires_at !== null) {
+            return URL::temporarySignedRoute('mail.view-online', Carbon::parse($this->expires_at), [
+                'onlineMailable' => $this
+            ]);
+        }
+
+        return URL::signedRoute('mail.view-online', [
+            'onlineMailable' => $this
+        ]);
+    }
+
     public static function getExpirationDate(): ?Carbon
     {
         if (self::storeIndefinitely()) {

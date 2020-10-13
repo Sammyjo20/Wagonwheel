@@ -35,11 +35,4 @@ class CreateOnlineMailable
     {
         return Str::uuid()->toString();
     }
-
-    private function generateOnlineViewingExpiry(): Carbon
-    {
-        $expiry = config('wagonwheel.message_expires_in_days', 30);
-
-        return Carbon::now()->addDays($expiry);
-    }
 }

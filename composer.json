@@ -32,5 +32,14 @@
         "psr-4": {
             "Sammyjo20\\Wagonwheel\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sammyjo20\\Wagonwheel\\Tests\\": "tests"
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.4"
     }
 }

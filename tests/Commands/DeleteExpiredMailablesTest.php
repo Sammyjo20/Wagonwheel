@@ -51,6 +51,18 @@ class DeleteExpiredMailablesTest extends TestCase
         $this->assertDatabaseMissing('online_mailables', ['uuid' => $expiredMailable->uuid]);
     }
 
+    /** @test */
+    function it_does_not_delete_mailables_with_an_expiry_date_of_null()
+    {
+        OnlineMailable::factory()->create([
+            'expires_at' => null,
+        ]);
+
+        $this->deleteExpiredMailables();
+
+        $this->assertCount(1, OnlineMailable::all());
+    }
+
     private function deleteExpiredMailables()
     {
         $this->artisan(DeleteExpiredMailables::class)

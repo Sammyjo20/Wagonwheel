@@ -2,7 +2,7 @@
 
 return [
 
-    'message' => 'Não consegue visualar este email corretamente?',
+    'message' => 'Não consegue visualizar este email corretamente?',
 
     'link' => 'Veja-o num browser',
 

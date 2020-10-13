@@ -21,4 +21,18 @@ class OnlineMailableFactory extends Factory
             'content' => $this->faker->sentence(6),
         ];
     }
+
+    public function expired()
+    {
+        return $this->state([
+            'expires_at' => Carbon::parse('1 year ago'),
+        ]);
+    }
+
+    public function expiresIn(string $expirePeriod)
+    {
+        return $this->state([
+            'expires_at' => now()->add($expirePeriod),
+        ]);
+    }
 }

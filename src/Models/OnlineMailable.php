@@ -16,6 +16,6 @@ class OnlineMailable extends Model
 
     protected static function newFactory()
     {
-        return new OnlineMailableFactory;
-}
+        return OnlineMailableFactory::new();
+    }
 }

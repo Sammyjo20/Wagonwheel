@@ -13,11 +13,9 @@ class OnlineMailableFactory extends Factory
 
     public function definition()
     {
-        $expiration = config('wagonwheel.message_expires_in_days', 30);
-
         return [
             'uuid' => $this->faker->uuid,
-            'expires_at' => Carbon::now()->addDays($expiration),
+            'expires_at' => OnlineMailable::getExpirationDate(),
             'content' => $this->faker->sentence(6),
         ];
     }

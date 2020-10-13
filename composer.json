@@ -35,6 +35,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "Database\\Factories\\": "database/factories",
             "Sammyjo20\\Wagonwheel\\Tests\\": "tests"
         }
     },

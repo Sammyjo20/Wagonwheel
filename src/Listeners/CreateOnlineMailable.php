@@ -20,7 +20,7 @@ class CreateOnlineMailable
         }
 
         $event->data['onlineViewingReference'] = $this->generateOnlineViewingReference();
-        $event->data['onlineViewingExpiry'] = $this->generateOnlineViewingExpiry();
+        $event->data['onlineViewingExpiry'] = OnlineMailable::getExpirationDate();
 
         $body = $event->message->getBody();
 

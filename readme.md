@@ -14,7 +14,7 @@
 
 - Easy to install.
 
-- Supports Laravel 7+
+- Supports Laravel 8
 
 ## Installation
 1. Install Wagonwheel using composer with the command below:

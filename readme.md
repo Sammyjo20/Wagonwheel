@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://samcarre.dev/images/wagonwheel-example.png" alt="Wagonwheel" >
+    <img src="https://samcarre.dev/images/ww-example.png" alt="Wagonwheel" >
 </p>
 
 # Wagonwheel

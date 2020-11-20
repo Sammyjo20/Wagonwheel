@@ -2,7 +2,7 @@
     <img src="https://samcarre.dev/images/ww-example.png" alt="Wagonwheel" >
 </p>
 
-> ❤️  Help support the maintenance of this package by [fueling me with coffee](https://ko-fi.com/sammyjo20).
+> Help support the maintenance of this package by [buying me a coffee or two](https://ko-fi.com/sammyjo20).
 
 # Wagonwheel
 

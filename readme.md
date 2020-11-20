@@ -2,6 +2,8 @@
     <img src="https://samcarre.dev/images/ww-example.png" alt="Wagonwheel" >
 </p>
 
+> ❤️ Help support the maintenance of this package by [fueling me with coffee](https://ko-fi.com/sammyjo20).
+
 # Wagonwheel
 
 **Offer an online version of your Laravel emails to users.**

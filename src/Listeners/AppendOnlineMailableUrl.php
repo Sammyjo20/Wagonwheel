@@ -24,19 +24,18 @@ class AppendOnlineMailableUrl
             return;
         }
 
-        if (!isset($event->data['onlineViewingReference'], $event->data['onlineViewingExpiry'])) {
+        if (!isset($event->data['onlineViewingReference'])) {
             return;
         }
 
         $this->appendUrlToMailableContent(
-            $event->message, $event->data['onlineViewingReference'], $event->data['onlineViewingExpiry']
+            $event->message, $event->data['onlineViewingReference']
         );
     }
 
     /**
      * @param Swift_Message $message
      * @param string $viewingReference
-     * @param Carbon $viewingExpiry
      * @throws \PHPHtmlParser\Exceptions\ChildNotFoundException
      * @throws \PHPHtmlParser\Exceptions\CircularException
      * @throws \PHPHtmlParser\Exceptions\ContentLengthException
@@ -45,10 +44,9 @@ class AppendOnlineMailableUrl
      * @throws \PHPHtmlParser\Exceptions\StrictException
      * @throws \Sammyjo20\Wagonwheel\Exceptions\ParsingMailableFailedException
      */
-    private function appendUrlToMailableContent(Swift_Message &$message, string $viewingReference, Carbon $viewingExpiry)
+    private function appendUrlToMailableContent(Swift_Message &$message, string $viewingReference)
     {
-        $updatedContent = (new AppendUrlToMailableContent($viewingReference, $viewingExpiry, $message->getBody()))
-            ->execute();
+        $updatedContent = (new AppendUrlToMailableContent($viewingReference, $message->getBody()))->execute();
 
         $message->setBody($updatedContent, 'text/html');
     }

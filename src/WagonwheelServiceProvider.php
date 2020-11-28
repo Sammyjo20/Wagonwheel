@@ -29,6 +29,10 @@ class WagonwheelServiceProvider extends BaseServiceProvider
         if ($this->app->runningInConsole()) {
             $this->scheduleCommands();
         }
+
+        if ($this->app->environment() === 'testing') {
+            $this->loadTestViews();
+        }
     }
 
     private function publishesItems(): self
@@ -97,6 +101,13 @@ class WagonwheelServiceProvider extends BaseServiceProvider
             $schedule = $this->app->make(Schedule::class);
             $schedule->command('wagonwheel:delete-expired-mailables')->everyMinute();
         });
+
+        return $this;
+    }
+
+    private function loadTestViews()
+    {
+        $this->loadViewsFrom(__DIR__ . '/../tests/resources/views', 'wagonwheel-tests');
 
         return $this;
     }

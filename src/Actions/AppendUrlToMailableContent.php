@@ -2,11 +2,10 @@
 
 namespace Sammyjo20\Wagonwheel\Actions;
 
-use Carbon\Carbon;
 use PHPHtmlParser\Dom;
 use PHPHtmlParser\Options;
 use Sammyjo20\Wagonwheel\Exceptions\ParsingMailableFailedException;
-use Sammyjo20\Wagonwheel\Helpers\UrlHelper;
+use Sammyjo20\Wagonwheel\Models\OnlineMailable;
 
 class AppendUrlToMailableContent
 {
@@ -14,11 +13,6 @@ class AppendUrlToMailableContent
      * @var string
      */
     protected $viewingReference;
-
-    /**
-     * @var Carbon
-     */
-    protected $viewingExpiry;
 
     /**
      * @var string
@@ -29,14 +23,11 @@ class AppendUrlToMailableContent
      * AppendUrlToMailableContent constructor.
      *
      * @param string $viewingReference
-     * @param Carbon $viewingExpiry
      * @param string $messageContent
      */
-    public function __construct(string $viewingReference, Carbon $viewingExpiry, string $messageContent)
+    public function __construct(string $viewingReference, string $messageContent)
     {
-        $this->setViewingReference($viewingReference)
-            ->setViewingExpiry($viewingExpiry)
-            ->setMessageContent($messageContent);
+        $this->setViewingReference($viewingReference)->setMessageContent($messageContent);
     }
 
     /**
@@ -108,7 +99,10 @@ class AppendUrlToMailableContent
 
     private function getComponentHtml(): string
     {
-        $url = UrlHelper::generateOnlineVersionUrl($this->viewingReference, $this->viewingExpiry);
+        /** @var OnlineMailable $mailable */
+        $mailable = OnlineMailable::where('uuid', $this->viewingReference)->firstOrFail();
+
+        $url = $mailable->getSignedUrl();
 
         return view('wagonwheel::components.view-online', ['url' => $url])->render();
     }
@@ -116,13 +110,6 @@ class AppendUrlToMailableContent
     private function setViewingReference(string $value): self
     {
         $this->viewingReference = $value;
-
-        return $this;
-    }
-
-    private function setViewingExpiry(Carbon $value): self
-    {
-        $this->viewingExpiry = $value;
 
         return $this;
     }

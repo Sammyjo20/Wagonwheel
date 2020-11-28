@@ -20,7 +20,7 @@ class CreateOnlineMailable
         }
 
         $event->data['onlineViewingReference'] = $this->generateOnlineViewingReference();
-        $event->data['onlineViewingExpiry'] = $this->generateOnlineViewingExpiry();
+        $event->data['onlineViewingExpiry'] = OnlineMailable::getExpirationDate();
 
         $body = $event->message->getBody();
 
@@ -34,12 +34,5 @@ class CreateOnlineMailable
     private function generateOnlineViewingReference(): string
     {
         return Str::uuid()->toString();
-    }
-
-    private function generateOnlineViewingExpiry(): Carbon
-    {
-        $expiry = config('wagonwheel.message_expires_in_days', 30);
-
-        return Carbon::now()->addDays($expiry);
     }
 }

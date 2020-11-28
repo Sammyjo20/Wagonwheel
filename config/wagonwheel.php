@@ -16,6 +16,7 @@ return [
      * the online version of an email in days.
      *
      * The default value is 30 days.
+     * To store indefinitely, set this value to: 0.
      */
     'message_expires_in_days' => 30,
 

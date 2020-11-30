@@ -41,7 +41,8 @@
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
-        "phpunit/phpunit": "^9.4"
+        "phpunit/phpunit": "^9.4",
+        "friendsofphp/php-cs-fixer": "^2.16"
     },
     "scripts": {
         "test": "vendor/bin/phpunit",

@@ -46,7 +46,7 @@ class AppendUrlToMailableContent
         $message = $this->createDomFromHtmlString($this->messageContent);
         $bodies = $message->find('body');
 
-        if (!$bodies->count()) {
+        if (! $bodies->count()) {
             throw new ParsingMailableFailedException('Could not find a <body> tag in the mailable.');
         }
 
@@ -60,9 +60,10 @@ class AppendUrlToMailableContent
             throw new ParsingMailableFailedException('There are no children inside the <body> tag.');
         }
 
-        foreach($componentChildren as $child) {
+        foreach ($componentChildren as $child) {
             if ($placement === 'start') {
                 $body->insertBefore($child, $bodyChildren[0]->id());
+
                 continue;
             }
 

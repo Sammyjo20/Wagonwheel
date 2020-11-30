@@ -46,7 +46,7 @@ class WagonwheelServiceProvider extends BaseServiceProvider
                 __DIR__ . '/../config/wagonwheel.php' => config_path('wagonwheel.php'),
             ], 'wagonwheel-config');
 
-            if (!class_exists('CreateOnlineMailablesTable')) {
+            if (! class_exists('CreateOnlineMailablesTable')) {
                 $this->publishes([
                     __DIR__ . '/../stubs/migrations/create_online_mailables_table.php.stub' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_online_mailables_table.php'),
                 ], 'wagonwheel-migrations');
@@ -66,7 +66,8 @@ class WagonwheelServiceProvider extends BaseServiceProvider
     private function loadConfig(): self
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/wagonwheel.php', 'wagonwheel'
+            __DIR__ . '/../config/wagonwheel.php',
+            'wagonwheel'
         );
 
         return $this;

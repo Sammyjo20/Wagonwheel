@@ -27,12 +27,12 @@ class OnlineMailable extends Model
     {
         if ($this->expires_at !== null) {
             return URL::temporarySignedRoute('mail.view-online', Carbon::parse($this->expires_at), [
-                'onlineMailable' => $this
+                'onlineMailable' => $this,
             ]);
         }
 
         return URL::signedRoute('mail.view-online', [
-            'onlineMailable' => $this
+            'onlineMailable' => $this,
         ]);
     }
 

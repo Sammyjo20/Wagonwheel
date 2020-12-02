@@ -15,7 +15,7 @@ class LocaleTest extends TestCase
 
         $this->assertEquals($enTranslations['message'], __('wagonwheel::view-online.message'));
 
-        $this->assertNotNull($enTranslations['link'], __('wagonwheel::view-online.message'));
+        $this->assertEquals($enTranslations['link'], __('wagonwheel::view-online.link'));
     }
 
     /** @test */
@@ -29,7 +29,7 @@ class LocaleTest extends TestCase
 
         $this->assertEquals($ptTranslations['message'], __('wagonwheel::view-online.message'));
 
-        $this->assertNotNull($ptTranslations['link'], __('wagonwheel::view-online.message'));
+        $this->assertEquals($ptTranslations['link'], __('wagonwheel::view-online.link'));
     }
 
     /** @test */
@@ -43,6 +43,6 @@ class LocaleTest extends TestCase
 
         $this->assertEquals($nlTranslations['message'], __('wagonwheel::view-online.message'));
 
-        $this->assertNotNull($nlTranslations['link'], __('wagonwheel::view-online.message'));
+        $this->assertEquals($nlTranslations['link'], __('wagonwheel::view-online.link'));
     }
 }

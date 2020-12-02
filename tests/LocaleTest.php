@@ -4,45 +4,28 @@ namespace Sammyjo20\Wagonwheel\Tests;
 
 class LocaleTest extends TestCase
 {
-    /** @test */
-    function it_can_render_en_translation()
+    function localeProvider()
     {
-        $enTranslations = include __DIR__ . '/../resources/lang/en/view-online.php';
-
-        $this->app->setLocale('en');
-
-        $this->assertTrue($this->app->isLocale('en'));
-
-        $this->assertEquals($enTranslations['message'], __('wagonwheel::view-online.message'));
-
-        $this->assertEquals($enTranslations['link'], __('wagonwheel::view-online.link'));
+        return [
+            ['en'],
+            ['pt'],
+            ['nl'],
+        ];
     }
 
-    /** @test */
-    function it_can_render_pt_translation()
+    /**
+     * @test
+     * @dataProvider localeProvider
+     */
+    function it_can_render_translation($locale)
     {
-        $ptTranslations = include __DIR__ . '/../resources/lang/pt/view-online.php';
+        $translations = require(__DIR__ . '/../resources/lang/' . $locale . '/view-online.php');
 
-        $this->app->setLocale('pt');
+        $this->app->setLocale($locale);
 
-        $this->assertTrue($this->app->isLocale('pt'));
+        $this->assertTrue($this->app->isLocale($locale));
 
-        $this->assertEquals($ptTranslations['message'], __('wagonwheel::view-online.message'));
-
-        $this->assertEquals($ptTranslations['link'], __('wagonwheel::view-online.link'));
-    }
-
-    /** @test */
-    function it_can_render_nl_translation()
-    {
-        $nlTranslations = include __DIR__ . '/../resources/lang/nl/view-online.php';
-
-        $this->app->setLocale('nl');
-
-        $this->assertTrue($this->app->isLocale('nl'));
-
-        $this->assertEquals($nlTranslations['message'], __('wagonwheel::view-online.message'));
-
-        $this->assertEquals($nlTranslations['link'], __('wagonwheel::view-online.link'));
+        $this->assertEquals($translations['message'], __('wagonwheel::view-online.message'));
+        $this->assertEquals($translations['link'], __('wagonwheel::view-online.link'));
     }
 }

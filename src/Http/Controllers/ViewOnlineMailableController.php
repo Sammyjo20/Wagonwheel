@@ -9,7 +9,7 @@ class ViewOnlineMailableController
 {
     public function __invoke(Request $request, OnlineMailable $onlineMailable)
     {
-        if (!$request->hasValidSignature()) {
+        if (! $request->hasValidSignature()) {
             abort(404);
         }
 

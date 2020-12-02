@@ -2,11 +2,9 @@
 
 namespace Sammyjo20\Wagonwheel\Listeners;
 
-use Carbon\Carbon;
 use Illuminate\Mail\Events\MessageSending;
 use Illuminate\Support\Str;
 use Sammyjo20\Wagonwheel\Concerns\HasListenerValidation;
-use Sammyjo20\Wagonwheel\Exceptions\InvalidMailableException;
 use Sammyjo20\Wagonwheel\Models\OnlineMailable;
 
 class CreateOnlineMailable
@@ -15,7 +13,7 @@ class CreateOnlineMailable
 
     public function handle(MessageSending $event): void
     {
-        if (!$this->validOnlineMailableEvent($event->message, $event->data)) {
+        if (! $this->validOnlineMailableEvent($event->message, $event->data)) {
             return;
         }
 

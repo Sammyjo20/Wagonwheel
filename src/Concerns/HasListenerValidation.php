@@ -2,9 +2,9 @@
 
 namespace Sammyjo20\Wagonwheel\Concerns;
 
+use \Swift_Message;
 use Illuminate\Support\Str;
 use Sammyjo20\Wagonwheel\Exceptions\InvalidMailableException;
-use \Swift_Message;
 
 trait HasListenerValidation
 {
@@ -16,18 +16,18 @@ trait HasListenerValidation
      */
     protected function validOnlineMailableEvent($eventMessage, $eventData): bool
     {
-        if (!$this->shouldCreateOnlineVersion($eventData)) {
+        if (! $this->shouldCreateOnlineVersion($eventData)) {
             return false;
         }
 
-        if (!$this->usingSwiftMailer($eventMessage)) {
+        if (! $this->usingSwiftMailer($eventMessage)) {
             throw new InvalidMailableException(
                 'The mailable is not using the SwiftMailer driver. Please use the SwiftMailer mail driver to 
                 support online versions.'
             );
         }
 
-        if (!$this->isHtmlContent($eventMessage->getBodyContentType())) {
+        if (! $this->isHtmlContent($eventMessage->getBodyContentType())) {
             throw new InvalidMailableException(
                 'The mailable provided is not a HTML email. Please make sure to use text/html as the content 
                 type.'

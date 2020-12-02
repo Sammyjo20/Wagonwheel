@@ -2,12 +2,11 @@
 
 namespace Sammyjo20\Wagonwheel\Listeners;
 
-use Carbon\Carbon;
+use \Swift_Message;
 use Illuminate\Mail\Events\MessageSending;
 use Sammyjo20\Wagonwheel\Actions\AppendUrlToMailableContent;
 use Sammyjo20\Wagonwheel\Concerns\HasListenerValidation;
 use Sammyjo20\Wagonwheel\Exceptions\InvalidMailableException;
-use \Swift_Message;
 
 class AppendOnlineMailableUrl
 {
@@ -20,16 +19,17 @@ class AppendOnlineMailableUrl
      */
     public function handle(MessageSending $event): void
     {
-        if (!$this->validOnlineMailableEvent($event->message, $event->data)) {
+        if (! $this->validOnlineMailableEvent($event->message, $event->data)) {
             return;
         }
 
-        if (!isset($event->data['onlineViewingReference'])) {
+        if (! isset($event->data['onlineViewingReference'])) {
             return;
         }
 
         $this->appendUrlToMailableContent(
-            $event->message, $event->data['onlineViewingReference']
+            $event->message,
+            $event->data['onlineViewingReference']
         );
     }
 

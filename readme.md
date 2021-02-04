@@ -2,7 +2,8 @@
     <img src="https://samcarre.dev/images/ww-example.png" alt="Wagonwheel" >
 </p>
 
-> This is was a collaborative project with [Ryan Chandler](https://github.com/ryangjchandler). Please consider supporting him for the hard work he put into this package.
+> This is was a collaborative project with [Ryan Chandler](https://github.com/ryangjchandler). Please consider supporting him for the hard work he put into this package!
+
 > Help support the maintenance of this package by [buying me a coffee](https://ko-fi.com/sammyjo20).
 
 # Wagonwheel

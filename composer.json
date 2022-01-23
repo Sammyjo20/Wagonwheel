@@ -1,7 +1,6 @@
 {
     "name": "sammyjo20/wagonwheel",
     "description": "Offer an online version of your Laravel emails to users.",
-    "version": "2.0.1",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -12,13 +11,13 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": "^7.3|^8.0",
-        "illuminate/support": "^8.0",
-        "illuminate/mail": "^8.0",
-        "illuminate/database": "^8.0",
-        "illuminate/http": "^8.0",
-        "illuminate/routing": "^8.0",
-        "illuminate/console": "^8.0",
+        "php": "^8.0",
+        "illuminate/support": "^8.0 || ^9.0",
+        "illuminate/mail": "^8.0 || ^9.0",
+        "illuminate/database": "^8.0 || ^9.0",
+        "illuminate/http": "^8.0 || ^9.0",
+        "illuminate/routing": "^8.0 || ^9.0",
+        "illuminate/console": "^8.0 || ^9.0",
         "paquettg/php-html-parser": "^3.1",
         "swiftmailer/swiftmailer": "^6.2.1"
     },

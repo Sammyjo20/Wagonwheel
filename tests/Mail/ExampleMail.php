@@ -14,4 +14,3 @@ class ExampleMail extends Mailable
         return $this->view('wagonwheel-tests::mails.example-mail');
     }
 }
-

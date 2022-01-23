@@ -4,8 +4,8 @@ namespace Sammyjo20\Wagonwheel\Listeners;
 
 use \Swift_Message;
 use Illuminate\Mail\Events\MessageSending;
-use Sammyjo20\Wagonwheel\Actions\AppendUrlToMailableContent;
 use Sammyjo20\Wagonwheel\Concerns\HasListenerValidation;
+use Sammyjo20\Wagonwheel\Actions\AppendUrlToMailableContent;
 use Sammyjo20\Wagonwheel\Exceptions\InvalidMailableException;
 
 class AppendOnlineMailableUrl

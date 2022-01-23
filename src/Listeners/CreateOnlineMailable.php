@@ -2,10 +2,10 @@
 
 namespace Sammyjo20\Wagonwheel\Listeners;
 
-use Illuminate\Mail\Events\MessageSending;
 use Illuminate\Support\Str;
-use Sammyjo20\Wagonwheel\Concerns\HasListenerValidation;
+use Illuminate\Mail\Events\MessageSending;
 use Sammyjo20\Wagonwheel\Models\OnlineMailable;
+use Sammyjo20\Wagonwheel\Concerns\HasListenerValidation;
 
 class CreateOnlineMailable
 {

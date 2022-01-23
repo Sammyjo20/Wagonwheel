@@ -3,8 +3,8 @@
 namespace Sammyjo20\Wagonwheel;
 
 use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Sammyjo20\Wagonwheel\Commands\DeleteExpiredMailables;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class WagonwheelServiceProvider extends BaseServiceProvider
 {

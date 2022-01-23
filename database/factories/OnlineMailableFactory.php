@@ -3,9 +3,8 @@
 namespace Database\Factories;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Sammyjo20\Wagonwheel\Models\OnlineMailable;
-
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class OnlineMailableFactory extends Factory
 {

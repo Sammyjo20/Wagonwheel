@@ -42,10 +42,13 @@
     "require-dev": {
         "orchestra/testbench": "^6.0",
         "phpunit/phpunit": "^9.4",
-        "friendsofphp/php-cs-fixer": "^2.16"
+        "friendsofphp/php-cs-fixer": "^3.5"
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
-        "test-f": "vendor/bin/phpunit --filter"
+        "test-f": "vendor/bin/phpunit --filter",
+        "fix-code": [
+            "./vendor/bin/php-cs-fixer fix"
+        ]
     }
 }

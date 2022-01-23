@@ -2,11 +2,11 @@
 
 namespace Sammyjo20\Wagonwheel;
 
-use Illuminate\Foundation\Support\Providers\EventServiceProvider as EventServiceProvider;
-
 use Illuminate\Mail\Events\MessageSending;
-use Sammyjo20\Wagonwheel\Listeners\AppendOnlineMailableUrl;
+
 use Sammyjo20\Wagonwheel\Listeners\CreateOnlineMailable;
+use Sammyjo20\Wagonwheel\Listeners\AppendOnlineMailableUrl;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as EventServiceProvider;
 
 class WagonwheelEventServiceProvider extends EventServiceProvider
 {

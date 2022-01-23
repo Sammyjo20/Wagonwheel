@@ -4,7 +4,7 @@ namespace Sammyjo20\Wagonwheel\Tests;
 
 class LocaleTest extends TestCase
 {
-    function localeProvider()
+    public function localeProvider()
     {
         return [
             ['en'],
@@ -17,7 +17,7 @@ class LocaleTest extends TestCase
      * @test
      * @dataProvider localeProvider
      */
-    function it_can_render_translation($locale)
+    public function it_can_render_translation($locale)
     {
         $translations = require(__DIR__ . '/../resources/lang/' . $locale . '/view-online.php');
 

@@ -2,18 +2,18 @@
 
 namespace Sammyjo20\Wagonwheel\Tests\Commands;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Config;
-use Sammyjo20\Wagonwheel\Commands\DeleteExpiredMailables;
-use Sammyjo20\Wagonwheel\Models\OnlineMailable;
 use Sammyjo20\Wagonwheel\Tests\TestCase;
+use Sammyjo20\Wagonwheel\Models\OnlineMailable;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Sammyjo20\Wagonwheel\Commands\DeleteExpiredMailables;
 
 class DeleteExpiredMailablesTest extends TestCase
 {
     use RefreshDatabase;
 
     /** @test */
-    function it_deletes_a_mailable_when_it_is_expired()
+    public function it_deletes_a_mailable_when_it_is_expired()
     {
         // The online mailable will expire after 15 days
         Config::set('wagonwheel.message_expires_in_days', 15);
@@ -34,7 +34,7 @@ class DeleteExpiredMailablesTest extends TestCase
     }
 
     /** @test */
-    function it_only_deletes_expired_mailables()
+    public function it_only_deletes_expired_mailables()
     {
         $expiredMailable = OnlineMailable::factory()->expired()->create();
         $nonExpiredMailable = OnlineMailable::factory()->expiresIn(now()->addMonth())->create();
@@ -52,7 +52,7 @@ class DeleteExpiredMailablesTest extends TestCase
     }
 
     /** @test */
-    function it_does_not_delete_mailables_with_an_expiry_date_of_null()
+    public function it_does_not_delete_mailables_with_an_expiry_date_of_null()
     {
         OnlineMailable::factory()->create([
             'expires_at' => null,

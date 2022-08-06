@@ -1,3 +1,6 @@
+# ⚠️ 07/08/2022 This project has officially been abandoned
+Thank you everyone for downloading Wagonwheel, however I am going to be formally abandoning the project.
+
 <p align="center">
     <img src="https://samcarre.dev/images/ww-example.png" alt="Wagonwheel" >
 </p>

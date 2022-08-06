@@ -4,8 +4,8 @@ namespace Sammyjo20\Wagonwheel\Actions;
 
 use PHPHtmlParser\Dom;
 use PHPHtmlParser\Options;
-use Sammyjo20\Wagonwheel\Exceptions\ParsingMailableFailedException;
 use Sammyjo20\Wagonwheel\Models\OnlineMailable;
+use Sammyjo20\Wagonwheel\Exceptions\ParsingMailableFailedException;
 
 class AppendUrlToMailableContent
 {

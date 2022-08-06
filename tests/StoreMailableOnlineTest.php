@@ -3,12 +3,11 @@
 namespace Sammyjo20\Wagonwheel\Tests;
 
 use Carbon\Carbon;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Config;
 use Sammyjo20\Wagonwheel\Models\OnlineMailable;
 use Sammyjo20\Wagonwheel\Tests\Mail\ExampleMail;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class StoreMailableOnlineTest extends TestCase
 {
@@ -22,7 +21,7 @@ class StoreMailableOnlineTest extends TestCase
     }
 
     /** @test */
-    function a_user_can_store_a_mailable_online_with_an_expiration_date()
+    public function a_user_can_store_a_mailable_online_with_an_expiration_date()
     {
         Config::set('wagonwheel.message_expires_in_days', 1);
 
@@ -44,7 +43,7 @@ class StoreMailableOnlineTest extends TestCase
     }
 
     /** @test */
-    function a_user_can_store_a_mailable_online_without_an_expiration_date()
+    public function a_user_can_store_a_mailable_online_without_an_expiration_date()
     {
         Config::set('wagonwheel.message_expires_in_days', 0);
 
